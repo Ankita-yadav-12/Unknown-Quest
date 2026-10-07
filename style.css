@@ -1,0 +1,854 @@
+```css
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+
+/* =========================
+   FIRST SCREEN
+   ========================= */
+
+#gameScreen {
+    min-height: 100vh;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #111;
+    color: white;
+}
+
+.game-container {
+    text-align: center;
+    padding: 40px;
+
+    border: 2px solid #444;
+    border-radius: 15px;
+
+    background: #1b1b1b;
+
+    width: 90%;
+    max-width: 600px;
+
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.08);
+}
+
+.small-text {
+    font-size: 13px;
+    color: #888;
+    letter-spacing: 2px;
+}
+
+h1 {
+    font-size: 48px;
+    margin: 25px 0 10px;
+    letter-spacing: 4px;
+}
+
+.subtitle {
+    color: #aaa;
+    font-size: 18px;
+}
+
+.game-info {
+    margin: 35px 0;
+    text-align: left;
+
+    background: #111;
+    padding: 20px;
+
+    border-radius: 10px;
+}
+
+.game-info p {
+    margin: 10px 0;
+}
+
+#startButton {
+    padding: 15px 40px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: white;
+    color: #111;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+#startButton:hover {
+    transform: scale(1.05);
+}
+
+.hint {
+    margin-top: 25px;
+    color: #666;
+    font-size: 13px;
+}
+
+
+/* =========================
+   SURPRISE SCREEN
+   ========================= */
+
+#surpriseScreen {
+    display: none;
+
+    min-height: 100vh;
+    width: 100%;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    background: #ffe6f0;
+    color: #5a3042;
+}
+
+.surprise-content {
+    padding: 40px;
+}
+
+.hearts {
+    font-size: 35px;
+    margin-bottom: 30px;
+
+    animation: float 2s ease-in-out infinite;
+}
+
+.surprise-content h2 {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+#surpriseText {
+    font-size: 24px;
+    min-height: 40px;
+}
+
+#surpriseNext {
+    margin-top: 30px;
+
+    padding: 14px 35px;
+
+    border: none;
+    border-radius: 25px;
+
+    background: #ff7fa5;
+    color: white;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+#surpriseNext:hover {
+    transform: scale(1.08);
+}
+
+
+@keyframes float {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+```
+.floating {
+    position: absolute;
+
+    font-size: 35px;
+
+    opacity: 0.5;
+
+    animation: floatAround 5s ease-in-out infinite;
+}
+
+.floating:nth-child(1) {
+    top: 15%;
+    left: 15%;
+}
+
+.floating:nth-child(2) {
+    top: 25%;
+    right: 15%;
+    animation-delay: 1s;
+}
+
+.floating:nth-child(3) {
+    bottom: 20%;
+    left: 20%;
+    animation-delay: 2s;
+}
+
+.floating:nth-child(4) {
+    bottom: 15%;
+    right: 20%;
+    animation-delay: 3s;
+}
+
+.floating:nth-child(5) {
+    top: 10%;
+    left: 50%;
+    animation-delay: 1.5s;
+}
+
+.floating:nth-child(6) {
+    bottom: 30%;
+    right: 45%;
+    animation-delay: 2.5s;
+}
+
+
+@keyframes floatAround {
+
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-25px) rotate(10deg);
+    }
+
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+}
+/* =========================
+   BIRTHDAY GAME WORLD
+   ========================= */
+
+#surpriseScreen {
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            180deg,
+            #202040 0%,
+            #34345f 55%,
+            #555080 100%
+        );
+
+    color: white;
+
+    font-family: "Quicksand", sans-serif;
+
+    animation: screenAppear 1s ease;
+}
+
+
+/* Game content */
+
+.surprise-content {
+
+    position: relative;
+
+    z-index: 10;
+
+    text-align: center;
+
+    padding: 40px;
+
+    animation: contentAppear 1s ease;
+}
+
+
+.game-icon {
+
+    font-size: 55px;
+
+    margin-bottom: 20px;
+
+    animation: controllerFloat 2s ease-in-out infinite;
+}
+
+
+.level-text {
+
+    font-family: "Press Start 2P", monospace;
+
+    font-size: 11px;
+
+    color: #f6d6ff;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 25px;
+}
+
+
+.surprise-content h2 {
+
+    font-family: "Press Start 2P", monospace;
+
+    font-size: 42px;
+
+    color: #ffffff;
+
+    margin: 15px 0 25px;
+
+    text-shadow:
+        4px 4px 0px #9b6bb5;
+
+}
+
+
+#surpriseText {
+
+    font-size: 22px;
+
+    font-weight: 600;
+
+    color: #fcecff;
+
+    min-height: 45px;
+
+}
+
+
+/* NEXT button */
+
+#surpriseNext {
+
+    margin-top: 35px;
+
+    padding: 16px 35px;
+
+    border: 3px solid #ffffff;
+
+    border-radius: 8px;
+
+    background: #ff8fbd;
+
+    color: white;
+
+    font-family: "Press Start 2P", monospace;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    box-shadow:
+        5px 5px 0px #392c50;
+
+    transition: 0.15s;
+}
+
+
+#surpriseNext:hover {
+
+    transform: translate(3px, 3px);
+
+    box-shadow:
+        2px 2px 0px #392c50;
+}
+
+
+/* Pixel stars */
+
+.pixel-star {
+
+    position: absolute;
+
+    color: #fff6c7;
+
+    font-size: 25px;
+
+    animation: twinkle 2s ease-in-out infinite;
+}
+
+
+.star1 {
+    top: 15%;
+    left: 15%;
+}
+
+.star2 {
+    top: 25%;
+    right: 18%;
+
+    animation-delay: 0.6s;
+}
+
+.star3 {
+    bottom: 20%;
+    left: 25%;
+
+    animation-delay: 1.2s;
+}
+
+
+/* Clouds */
+
+.cloud {
+
+    position: absolute;
+
+    width: 180px;
+    height: 55px;
+
+    background: rgba(255,255,255,0.08);
+
+    border-radius: 50px;
+
+    filter: blur(1px);
+}
+
+
+.cloud::before,
+.cloud::after {
+
+    content: "";
+
+    position: absolute;
+
+    background: inherit;
+
+    border-radius: 50%;
+}
+
+
+.cloud::before {
+
+    width: 70px;
+    height: 70px;
+
+    left: 30px;
+    bottom: 15px;
+}
+
+
+.cloud::after {
+
+    width: 90px;
+    height: 90px;
+
+    right: 25px;
+    bottom: 10px;
+}
+
+
+.cloud1 {
+
+    top: 20%;
+
+    left: -50px;
+
+    animation: cloudMove 12s linear infinite;
+}
+
+
+.cloud2 {
+
+    bottom: 18%;
+
+    right: -80px;
+
+    transform: scale(0.7);
+
+    animation: cloudMoveReverse 15s linear infinite;
+}
+
+
+/* Animations */
+
+@keyframes screenAppear {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+
+@keyframes contentAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+@keyframes controllerFloat {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+
+}
+
+
+@keyframes twinkle {
+
+    0% {
+        opacity: 0.3;
+        transform: scale(0.8);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+
+    100% {
+        opacity: 0.3;
+        transform: scale(0.8);
+    }
+
+}
+
+
+@keyframes cloudMove {
+
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(120vw);
+    }
+
+}
+
+
+@keyframes cloudMoveReverse {
+
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-120vw);
+    }
+
+}
+#surpriseText {
+    font-size: 22px;
+
+    font-weight: 600;
+
+    color: #fcecff;
+
+    min-height: 45px;
+
+    transition: opacity 0.25s ease;
+}
+#finalScreen {
+
+    display: none;
+
+    min-height: 100vh;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            180deg,
+            #2d2b55,
+            #4f4a8b
+        );
+
+    color: white;
+}
+
+.final-content {
+
+    max-width: 700px;
+
+    padding: 40px;
+}
+
+.final-content h1 {
+
+    font-size: 50px;
+}
+
+.birthday-message {
+
+    font-size: 22px;
+
+    line-height: 1.8;
+}
+/* =========================
+   FINAL BIRTHDAY SCREEN
+   ========================= */
+
+#finalScreen {
+    display: none;
+
+    min-height: 100vh;
+    width: 100%;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            #49458a,
+            transparent 35%
+        ),
+        linear-gradient(
+            180deg,
+            #171936,
+            #292653,
+            #171936
+        );
+
+    color: white;
+
+    font-family: "Quicksand", sans-serif;
+}
+
+
+/* Floating stars */
+
+.final-stars {
+    position: absolute;
+
+    top: 8%;
+    left: 0;
+    right: 0;
+
+    font-size: 30px;
+
+    color: #ffffff;
+
+    animation: twinkle 1.5s infinite alternate;
+}
+
+
+/* Main content */
+
+.final-content {
+    max-width: 750px;
+
+    padding: 40px 25px;
+
+    animation: finalAppear 1s ease;
+}
+
+
+/* Cake */
+
+.final-cake {
+    font-size: 80px;
+
+    margin-bottom: 10px;
+
+    animation: cakeBounce 1.5s infinite ease-in-out;
+}
+
+
+/* Achievement text */
+
+.achievement {
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 25px;
+}
+
+
+/* Main heading */
+
+.final-content h1 {
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 42px;
+
+    line-height: 1.5;
+
+    margin: 15px 0;
+}
+
+
+/* Name */
+
+.final-content h2 {
+    font-size: 28px;
+
+    margin-bottom: 30px;
+}
+
+
+/* Birthday message box */
+
+.birthday-box {
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border: 2px solid rgba(255, 255, 255, 0.2);
+
+    border-radius: 20px;
+
+    padding: 25px;
+
+    backdrop-filter: blur(8px);
+
+    box-shadow:
+        0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+
+.birthday-box p {
+
+    font-size: 18px;
+
+    line-height: 1.7;
+
+    margin: 15px 0;
+}
+
+
+/* Bottom text */
+
+.final-footer {
+
+    font-family: "Press Start 2P", cursive;
+
+    font-size: 11px;
+
+    margin-top: 30px;
+}
+
+
+/* Animations */
+
+@keyframes finalAppear {
+
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+
+@keyframes cakeBounce {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+
+}
+
+
+@keyframes twinkle {
+
+    from {
+        opacity: 0.4;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+
+}
+#confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    pointer-events: none;
+    z-index: 9999;
+
+    overflow: hidden;
+}
+
+.confetti {
+    position: absolute;
+
+    width: 12px;
+    height: 18px;
+
+    top: -30px;
+
+    animation: confettiFall 4s linear forwards;
+}
+
+@keyframes confettiFall {
+
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 1;
+    }
+
+}
